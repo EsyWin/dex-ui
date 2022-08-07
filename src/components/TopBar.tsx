@@ -6,7 +6,7 @@ import {
 import { Button, Col, Menu, Popover, Row, Select } from 'antd';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import logo from '../assets/logo.svg';
+// import logo from '../assets/logo.svg';
 import styled from 'styled-components';
 import { useWallet } from '../utils/wallet';
 import { ENDPOINTS, useConnectionConfig } from '../utils/connection';
@@ -19,7 +19,7 @@ import WalletConnect from './WalletConnect';
 import { getTradePageUrl } from '../utils/markets';
 
 const Wrapper = styled.div`
-  background-color: #0d1017;
+  background-color: #2a2a2a;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -130,7 +130,8 @@ export default function TopBar() {
   const tradePageUrl = location.pathname.startsWith('/market/')
     ? location.pathname
     : getTradePageUrl();
-
+  const logo =
+    'https://raw.githubusercontent.com/esywin/cdn/main/krk.finance/assets/img/coin_logo.png';
   return (
     <>
       <CustomClusterEndpointDialog
@@ -141,8 +142,8 @@ export default function TopBar() {
       />
       <Wrapper>
         <LogoWrapper onClick={() => history.push(tradePageUrl)}>
-          {/* <img src={logo} alt="" /> */}
-          {'KRK.FINANCE'}
+          <img src={logo} alt="" />
+          {/* {'KRK.FINANCE'} */}
         </LogoWrapper>
         <Menu
           mode="horizontal"

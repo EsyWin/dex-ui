@@ -6,16 +6,16 @@ const { Footer } = Layout;
 const { useBreakpoint } = Grid;
 
 const footerElements = [
-  {
-    description: 'Serum Developer Resources',
-    link: helpUrls.developerResources,
-  },
+  // {
+  //   description: 'Serum Developer Resources',
+  //   link: helpUrls.developerResources,
+  // },
   { description: 'Discord', link: helpUrls.discord },
-  { description: 'Telegram', link: helpUrls.telegram },
+  // { description: 'Telegram', link: helpUrls.telegram },
   { description: 'Twitter', link: helpUrls.twitter },
   { description: 'GitHub', link: helpUrls.github },
-  { description: 'Raydium', link: helpUrls.raydium },
-  { description: 'Solana Network', link: helpUrls.solanaBeach },
+  // { description: 'Raydium', link: helpUrls.raydium },
+  // { description: 'Solana Network', link: helpUrls.solanaBeach },
 ];
 
 export const CustomFooter = () => {
@@ -24,9 +24,10 @@ export const CustomFooter = () => {
   return (
     <Footer
       style={{
-        height: '45px',
+        height: '64px',
         paddingBottom: 10,
         paddingTop: 10,
+        backgroundColor: '#2a2a2a',
       }}
     >
       <Row align="middle" gutter={[16, 4]}>

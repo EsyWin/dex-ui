@@ -28,6 +28,7 @@ import UserInfoTable from '../components/UserInfoTable';
 import { notify } from '../utils/notifications';
 import styled from 'styled-components';
 import { nanoid } from 'nanoid';
+import '../index.scss';
 
 const { Option, OptGroup } = Select;
 
@@ -38,6 +39,54 @@ const Wrapper = styled.div`
   padding: 16px 16px;
   .borderNone .ant-select-selector {
     border: none !important;
+  }
+`;
+
+const AnimatedBorder = styled.div`
+  --border-width: 3px;
+
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 200px;
+  font-family: Lato, sans-serif;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  color: white;
+  background: #222;
+  border-radius: var(--border-width);
+
+  &::after {
+    position: absolute;
+    content: '';
+    top: calc(-1 * var(--border-width));
+    left: calc(-1 * var(--border-width));
+    z-index: -1;
+    width: calc(100% + var(--border-width) * 2);
+    height: calc(100% + var(--border-width) * 2);
+    background: linear-gradient(
+      60deg,
+      hsl(224, 85%, 66%),
+      hsl(269, 85%, 66%),
+      hsl(314, 85%, 66%),
+      hsl(359, 85%, 66%),
+      hsl(44, 85%, 66%),
+      hsl(89, 85%, 66%),
+      hsl(134, 85%, 66%),
+      hsl(179, 85%, 66%)
+    );
+    background-size: 300% 300%;
+    background-position: 0 50%;
+    border-radius: calc(2 * var(--border-width));
+    animation: moveGradient 4s alternate infinite;
+  }
+
+  @keyframes moveGradient {
+    50% {
+      background-position: 100% 50%;
+    }
   }
 `;
 
@@ -334,12 +383,13 @@ const RenderNormal = ({ onChangeOrderRef, onPrice, onSize }) => {
       <Col
         flex="auto"
         style={{
-          height: '100vh',
+          height: 'calc(100vh - 128px - 72px)',
           display: 'flex',
           flexDirection: 'column',
           border: '1px solid #9945FF',
           marginRight: '15px',
         }}
+        className="gradient-border"
       >
         <TVChartContainer />
         <UserInfoTable smallScreen={false} />
@@ -348,7 +398,7 @@ const RenderNormal = ({ onChangeOrderRef, onPrice, onSize }) => {
       <Col
         flex="15%"
         style={{
-          height: '100vh',
+          height: 'calc(100vh - 128px - 72px)',
           minWidth: '280px',
           border: '1px solid #9945FF',
           marginRight: '15px',
@@ -361,7 +411,7 @@ const RenderNormal = ({ onChangeOrderRef, onPrice, onSize }) => {
       <Col
         flex="400px"
         style={{
-          height: '100vh',
+          height: 'calc(100vh - 128px - 72px)',
           border: '1px solid #9945FF',
           padding: '5px',
           overflow: 'hidden',

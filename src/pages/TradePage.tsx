@@ -388,6 +388,7 @@ const RenderNormal = ({ onChangeOrderRef, onPrice, onSize }) => {
           flexDirection: 'column',
           border: '1px solid #9945FF',
           marginRight: '15px',
+          // zIndex: 1,
         }}
         className="gradient-border"
       >
@@ -403,6 +404,7 @@ const RenderNormal = ({ onChangeOrderRef, onPrice, onSize }) => {
           border: '1px solid #9945FF',
           marginRight: '15px',
           overflow: 'hidden',
+          zIndex: 1,
         }}
       >
         <Orderbook smallScreen={false} onPrice={onPrice} onSize={onSize} />
@@ -415,6 +417,7 @@ const RenderNormal = ({ onChangeOrderRef, onPrice, onSize }) => {
           border: '1px solid #9945FF',
           padding: '5px',
           overflow: 'hidden',
+          zIndex: 1,
         }}
       >
         <TradeForm setChangeOrderRef={onChangeOrderRef} />
